@@ -117,7 +117,7 @@ If you are a CF admin, you already have the network.admin scope. An admin can al
 
 For more information, see Creating and Managing Users with the UAA CLI (UAAC) and Orgs, Spaces, Roles, and Permissions.
 
-# Install the Plugin
+## Install the Plugin
 Follow these steps to download and install the Network Policy plugin for the cf CLI:
 
 Download the network-policy-plugin for your operating system from the Container-to-Container Networking Release repository.
@@ -126,7 +126,7 @@ To change the permissions of the plugin file and complete the installation, ente
     chmod +x ~/Downloads/network-policy-plugin
     cf install-plugin ~/Downloads/network-policy-plugin
     
-# Create a Policy
+## Create a Policy
 To create a policy that allows direct network traffic from one app to another, enter the following command:
 
 

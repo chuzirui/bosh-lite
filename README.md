@@ -8,7 +8,7 @@ it will take very long time if you are behind GFW
 
 try this in your .bashrc if you are using proxy
 
-    export http_proxy=http://proxy.vmware.com:3128/
+    export http_proxy=http://<your-proxy-ip>:<proxy-port>/
     export https_proxy=$http_proxy
     export ftp_proxy=$http_proxy
     export rsync_proxy=$http_proxy

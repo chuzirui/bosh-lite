@@ -45,7 +45,7 @@ To enable Container-to-Container Networking on BOSH-Lite, navigate to the cf-net
 In this tutorial, you deploy two apps and create a Container-to-Container Networking policy that allows them to communicate directly with each other.
 
 
-# Manage Logging for Container-to-Container Networking
+## Manage Logging for Container-to-Container Networking
 
 This section describes how to configure logging for Container-to-Container Networking events by making requests to the running virtual machines (VMs). You can also enable logging for iptables policy rules by editing the manifest in Enable on an IaaS.
 

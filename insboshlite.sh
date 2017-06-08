@@ -1,10 +1,9 @@
 #!/bin/bash
-alias apt='apy -y'
-apt update
-apt install vim
-apt install git virtualbox vagrant
-apt install vagrant
-apt install virtualbox
+apt -y update
+apt -y install vim
+apt -y install git virtualbox vagrant
+apt -y install vagrant
+apt -y install virtualbox
 gem install bosh_cli
 mkdir ~/workspace
 cd ~/workspace

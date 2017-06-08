@@ -51,8 +51,11 @@ By default, the Policy Server logs events at the INFO level. You can capture mor
 To change the log level, follow the steps below:
 
 SSH to either the Policy Server or the VXLAN Policy Agent.
+
 Policy Server: SSH directly to the Policy Server VM.
+
 VXLAN Policy Agent: SSH to the Diego cell that runs the VXLAN Policy Agent.
+
 To change the log level, run the following command:
 
     curl -X POST -d 'LOG-LEVEL' localhost:PORT-NUMBER/log-level
@@ -67,11 +70,16 @@ The following command decreases the log level to INFO:
 Find the logs in the following locations:
 
 Policy Server: /var/vcap/sys/log/policy-server/policy-server.stdout.log
+
 VXLAN Policy Agent: /var/vcap/sys/log/vxlan-policy-agent/vxlan-policy-agent.stdout.log
+
 Enable Logging for Container-to-Container Networking Policies
-By default, CF does not log iptables policy rules for Container-to-Container network traffic. You can enable logging for iptables policy rules in the manifest in Enable on an IaaS above, or follow the steps below:
+
+By default, CF does not log iptables policy rules for Container-to-Container network traffic. 
+You can enable logging for iptables policy rules in the manifest in Enable on an IaaS above, or follow the steps below:
 
 SSH to the Diego cell that runs the VXLAN Policy Agent.
+
 To change the log level, run the following command:
 
     curl -X PUT -d '{"enabled": BOOLEAN}' localhost:PORT-NUMBER/iptables-c2c-logging
@@ -84,6 +92,7 @@ The following command disables logging for iptables policy rules:
     
     curl -X PUT -d '{"enabled": false}' localhost:22222/iptables-c2c-logging
 Find the logs in /var/log/kern.log.
+
 Use Metrics to Consume Logs
 You can stream Container-to-Container Networking component metrics with the Loggregator Firehose.
 
@@ -121,9 +130,13 @@ To create a policy that allows direct network traffic from one app to another, e
 Replace the placeholders in the above command as follows:
 
 SOURCE-APP is the name of the app that will send traffic.
+
 DESTINATION-APP is the name of the app that will receive traffic.
+
 PROTOCOL is one of the following: tcp or udp.
+
 PORT is the port at which to connect to the destination app. The allowed range is from 1 to 65535.
+
 The following example command allows access from the frontend app to the backend app over TCP at port 8080:
 
 
@@ -153,6 +166,7 @@ To delete a policy that allows direct network traffic from one app to another, e
 
     cf remove-access SOURCE-APP DESTINATION-APP --protocol PROTOCOL --port PORT
 The following command deletes the policy that allowed the frontend app to communicate with the backend app over TCP on port 8080:
+    
     cf remove-access frontend backend --protocol tcp --port 8080
 Denying traffic from frontend to backend as admin...
 OK 

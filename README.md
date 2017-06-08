@@ -15,7 +15,7 @@ try this in your .bashrc if you are using proxy
     export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 
-Enable on BOSH-Lite
+## Enable on BOSH-Lite
 If your CF deployment runs on BOSH-Lite, follow these steps to enable Container-to-Container Networking.
 
 Ensure your BOSH-Lite version is 9000.131.0 or later. If you need to upgrade, follow the instructions for Upgrading the BOSH-Lite VM.

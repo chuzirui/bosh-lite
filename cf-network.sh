@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 git clone https://github.com/cloudfoundry/diego-release ~/workspace/diego-release
+ git clone https://github.com/cloudfoundry/cf-deployment
+ ~/workspace/cf-deployment
 git clone https://github.com/cloudfoundry-incubator/cf-networking-release ~/workspace/cf-networking-release
 wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.23-linux-amd64
 chmod +x bosh-cli-2.0.23-linux-amd64

@@ -22,7 +22,7 @@ export BOSH_CLIENT_SECRET=`bosh int ~/deployments/vbox/creds.yml --path /admin_p
 export BOSH_DEPLOYMENT=cf
 export BOSH_ENVIRONMENT=vbox
 export BOSH_CA_CERT=$(bosh int ~/deployments/vbox/creds.yml --path /director_ssl/ca)
-bosh -e vbox update-cloud-config ~/workspace/cf-deployment/bosh-lite/cloud-config.yml
+bosh -e vbox update-cloud-config cloud-config.yml
 wget -O cf-networking-release-1.0.0.tgz https://bosh.io/d/github.com/cloudfoundry-incubator/cf-networking-release
 bosh upload-release cf-networking-release-1.0.0.tgz
 bosh deploy -n ~/workspace/cf-deployment/cf-deployment.yml  -o ~/workspace/cf-networking-release/manifest-generation/opsfiles/cf-networking.yml  -o ~/workspace/cf-deployment/operations/bosh-lite.yml  -o ~/workspace/cf-networking-release/manifest-generation/opsfiles/postgres.yml  --vars-store ~/workspace/cf-networking-deployments/environments/local/deployment-vars.yml  -v system_domain=bosh-lite.com

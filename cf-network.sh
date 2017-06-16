@@ -17,12 +17,13 @@ cp bosh /usr/local/bin
 bosh create-env ~/workspace/bosh-deployment/bosh.yml   --state ./state.json -o ~/workspace/bosh-deployment/virtualbox/cpi.yml   -o ~/workspace/bosh-deployment/virtualbox/outbound-network.yml   -o ~/workspace/bosh-deployment/bosh-lite.yml   -o ~/workspace/bosh-deployment/bosh-lite-runc.yml   -o ~/workspace/bosh-deployment/jumpbox-user.yml   --vars-store ./creds.yml   -v director_name="Bosh Lite Director"   -v internal_ip=192.168.50.6   -v internal_gw=192.168.50.1   -v internal_cidr=192.168.50.0/24   -v outbound_network_name=NatNetwork
 route add -net 10.244.0.0/16 gw 192.168.50.6
 bosh -e 192.168.50.6 --ca-cert <(bosh int ./creds.yml --path /director_ssl/ca) alias-env vbox
-bosh -e vbox upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
 export BOSH_CLIENT=admin
 export BOSH_CLIENT_SECRET=`bosh int ~/deployments/vbox/creds.yml --path /admin_password`
 export BOSH_DEPLOYMENT=cf
 export BOSH_ENVIRONMENT=vbox
 export BOSH_CA_CERT=$(bosh int ~/deployments/vbox/creds.yml --path /director_ssl/ca)
+wget https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent -O bosh-warden-boshlite-ubuntu-trusty-go_agent.tgz
+bosh -e vbox upload-stemcell  bosh-warden-boshlite-ubuntu-trusty-go_agent.tgz
 bosh -e vbox update-cloud-config cloud-config.yml -n
 wget -O cf-networking-release-1.0.0.tgz https://bosh.io/d/github.com/cloudfoundry-incubator/cf-networking-release
 bosh upload-release cf-networking-release-1.0.0.tgz

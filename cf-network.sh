@@ -5,6 +5,7 @@ apt -y install git virtualbox vagrant ruby
 
 git clone https://github.com/cloudfoundry/bosh-deployment ~/workspace/bosh-deployment
 mkdir -p ~/deployments/vbox
+cp cloud-config.yml ~/deployments/vbox
 cd ~/deployments/vbox
 git clone https://github.com/cloudfoundry/diego-release ~/workspace/diego-release
 git clone https://github.com/cloudfoundry/cf-deployment ~/workspace/cf-deployment

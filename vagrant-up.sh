@@ -13,8 +13,7 @@ route add -net 10.244.0.0/16 gw 192.168.50.4
 export BOSH_CA_CERT=~/workspace/bosh-lite/ca/certs/ca.crt
 bosh -e 192.168.50.4  alias-env vbox
 bosh -e vbox login
-wget https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent -O bosh-warden-boshlite-ubuntu-trusty-go_agent.tgz
-bosh -e vbox upload-stemcell  bosh-warden-boshlite-ubuntu-trusty-go_agent.tgz
+bosh -e vbox upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent
 bosh -e vbox update-cloud-config /root/workspace/cf-deployment/bosh-lite/cloud-config.yml -n
 wget -O cf-networking-release-1.0.0.tgz https://bosh.io/d/github.com/cloudfoundry-incubator/cf-networking-release
 bosh -e vbox upload-release cf-networking-release-1.0.0.tgz

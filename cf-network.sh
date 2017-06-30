@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+cd ~/workspace/bosh-lite
+vagrant up --provider=virtualbox
+export no_proxy=192.168.50.4,xip.io
+bin/add-route
 
 [ ! -d "/root/workspace/bosh-deployment"  ] && git clone https://github.com/cloudfoundry/bosh-deployment ~/workspace/bosh-deployment
 [ ! -d "/root/workspace/diego-release"  ] && git clone https://github.com/cloudfoundry/diego-release ~/workspace/diego-release

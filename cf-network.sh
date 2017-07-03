@@ -8,9 +8,7 @@ bin/add-route
 [ ! -d "/root/workspace/diego-release"  ] && git clone https://github.com/cloudfoundry/diego-release ~/workspace/diego-release
 [ ! -d "/root/workspace/cf-deployment"  ] && git clone https://github.com/cloudfoundry/cf-deployment ~/workspace/cf-deployment
 [ ! -d "/root/workspace/cf-networking-release"  ] && git clone https://github.com/cloudfoundry-incubator/cf-networking-release ~/workspace/cf-networking-release
-wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.23-linux-amd64
-chmod +x bosh-cli-2.0.23-linux-amd64
-mv bosh-cli-2.0.23-linux-amd64 bosh
+[ ! -f "/root/workspace/bosh-lite/bosh" ]  && wget https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-2.0.23-linux-amd64 && chmod +x bosh-cli-2.0.23-linux-amd64 && mv bosh-cli-2.0.23-linux-amd64 bosh
 cp bosh /usr/local/bin
 export BOSH_CA_CERT=/root/workspace/bosh-lite/ca/certs/ca.crt
 export BOSH_DEPLOYMENT=cf
